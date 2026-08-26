@@ -57,6 +57,7 @@ export const auth = betterAuth({
 
   emailAndPassword: {
     enabled: true,
+    autoSignIn: true,
   },
 
   user: {
@@ -67,6 +68,14 @@ export const auth = betterAuth({
         defaultValue: 'USER',
         input: false,
       },
+    },
+  },
+  session: {
+    expiresIn: 60 * 60 * 24 * 7, // 7 days
+    updateAge: 60 * 60 * 24, // Refresh every 1 day
+    cookieCache: {
+      enabled: true,
+      maxAge: 300, // 5 minutes cache
     },
   },
 
@@ -124,5 +133,9 @@ export const auth = betterAuth({
         userAgent: context.request?.headers.get('user-agent') || 'UNKNOWN',
       });
     }),
+  },
+  advanced: {
+    generateId: false,
+    cookiePrefix: 'bk', 
   },
 });
