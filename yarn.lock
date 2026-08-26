@@ -235,6 +235,11 @@
   resolved "https://registry.yarnpkg.com/@prisma/client-runtime-utils/-/client-runtime-utils-7.9.1.tgz#3b852af928694b0e3d80ccb5d2521f3684ec4aed"
   integrity sha512-mVIBGYdO5CFmK0HvjxrtfIyQQcPdb88pSCeVQriVQPVZyDovIWblpHfOgcS8QO187j3QF0ePArH8qPhp0AU2vg==
 
+"@prisma/client-runtime-utils@^7.3.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client-runtime-utils/-/client-runtime-utils-7.10.0.tgz#6c0e5bfcf43309aafbd89be660172e6150945ce5"
+  integrity sha512-cnCy7lUV8/CctgKVEmqAbSLAmwqJdE/qAlqTBk/0NDk59zEb2cZ0M0M0E4vVPnqbSEYudRroQDvOWfUZH6RIfw==
+
 "@prisma/client@^7.9.1":
   version "7.9.1"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-7.9.1.tgz#f335c6b0366ebf92d7f987c63fafc62eb3b371d9"
@@ -251,6 +256,11 @@
     deepmerge-ts "7.1.5"
     effect "3.20.0"
     empathic "2.0.0"
+
+"@prisma/debug@7.10.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@prisma/debug/-/debug-7.10.0.tgz#9ac8ed485699bd08978fe83f97a80993f30d4638"
+  integrity sha512-caygJKtltmRIgdJ3jRpkOr7yM4DW6zxo5uOmojKWFb3asnxWoRkQOwZmXBgD8FZp4htrX+nMpcWqDwzlQ1+Y4g==
 
 "@prisma/debug@7.2.0":
   version "7.2.0"
@@ -283,6 +293,11 @@
     valibot "1.4.2"
     zeptomatch "2.1.0"
 
+"@prisma/dmmf@7.10.0", "@prisma/dmmf@^7.3.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@prisma/dmmf/-/dmmf-7.10.0.tgz#dc833c5a5bc6891e909df353558e63f3c3f94a67"
+  integrity sha512-TSw3Vo+TFKGRXNH/D2/M755Vm9rD3h3F0xoFfexPvEcPunQWlxUmj5VU/k8Pe3afQ4jFjUVBxem+/+A7YFwvsg==
+
 "@prisma/driver-adapter-utils@7.9.1":
   version "7.9.1"
   resolved "https://registry.yarnpkg.com/@prisma/driver-adapter-utils/-/driver-adapter-utils-7.9.1.tgz#525ddf8f10e045298af6fbc8f1517c66ac02a937"
@@ -313,6 +328,20 @@
     "@prisma/debug" "7.9.1"
     "@prisma/engines-version" "7.9.0-1.e922089b7d7502aff4249d5da3420f6fa55fc6ad"
     "@prisma/get-platform" "7.9.1"
+
+"@prisma/generator-helper@^7.3.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@prisma/generator-helper/-/generator-helper-7.10.0.tgz#72e3d2f43c4791d865dfb04a0e723b560d68c7d3"
+  integrity sha512-hEOsOo4pxmsJJjw64hu8Yh2PYYl3cvoSQT0xMDKkYDmgRNBARshnjrJJ/DJT35iFEsoej5ndViEpHmt3G3Aeaw==
+  dependencies:
+    "@prisma/debug" "7.10.0"
+    "@prisma/dmmf" "7.10.0"
+    "@prisma/generator" "7.10.0"
+
+"@prisma/generator@7.10.0":
+  version "7.10.0"
+  resolved "https://registry.yarnpkg.com/@prisma/generator/-/generator-7.10.0.tgz#7fb02309ee91c59b77918f629537ad09caafe01e"
+  integrity sha512-GJfd4E7buRlOjc4FT1Sfo9SW4zlzYbmkmGy6OVWedzsZdBA4C+ommdfDDmMc8ZcokccpUmZK/zJ1A3tdR0tKFg==
 
 "@prisma/get-platform@7.2.0":
   version "7.2.0"
@@ -985,6 +1014,11 @@ cluster-key-slot@1.1.2:
   resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.1.2.tgz#88ddaa46906e303b5de30d3153b7d9fe0a0c19ac"
   integrity sha512-RMr0FhtfXemyinomL4hrWcYJxmX6deFdCxpJzhDttxgO1+bcCnkk+9drydLVDmAMG7NE6aN/fl4F7ucU/90gAA==
 
+code-block-writer@^13.0.3:
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/code-block-writer/-/code-block-writer-13.0.3.tgz#90f8a84763a5012da7af61319dd638655ae90b5b"
+  integrity sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==
+
 concat-stream@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-2.0.0.tgz#414cf5af790a48c60ab9be4527d56d5e41133cb1"
@@ -1555,7 +1589,7 @@ json-schema-traverse@^1.0.0:
   resolved "https://registry.yarnpkg.com/kysely/-/kysely-0.29.5.tgz#c07a51700a4b4db53c60bd373e6e098f919fccae"
   integrity sha512-ooa+eSbBNPTo3MycPEuW5jdrxQdQwdtB3LC3h43FiXQbIry5tR0C5lDG7eealK0E4D7XjrnOP5DIUg/LyjRMYQ==
 
-lodash@^4.17.21:
+lodash@^4.17.21, lodash@^4.17.23:
   version "4.18.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
   integrity sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==
@@ -2209,6 +2243,18 @@ zeptomatch@2.1.0:
   dependencies:
     grammex "^3.1.11"
     graphmatch "^1.1.0"
+
+zod-prisma-types@^3.3.11:
+  version "3.3.11"
+  resolved "https://registry.yarnpkg.com/zod-prisma-types/-/zod-prisma-types-3.3.11.tgz#ec95c4e198fed745bcbac2300976db41accfa1bc"
+  integrity sha512-fP00cL+MLPhG3GDNep3cro5iXWTaFUcOqWoGfNGFFmaIxHjKoViXGKpZGwFg8RdXZdng1i1/EIh/Pv5kGQeKNA==
+  dependencies:
+    "@prisma/client-runtime-utils" "^7.3.0"
+    "@prisma/dmmf" "^7.3.0"
+    "@prisma/generator-helper" "^7.3.0"
+    code-block-writer "^13.0.3"
+    lodash "^4.17.23"
+    zod "^4.3.6"
 
 zod@^4.3.6, zod@^4.4.3:
   version "4.4.3"
