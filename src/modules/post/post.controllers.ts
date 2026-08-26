@@ -1,23 +1,18 @@
-import { Router } from 'express';
-import { z } from 'zod';
-
-import { generateSlug } from '../utils/slug.js';
-import { createPostSchema } from '../validations/createPostSchema.js';
-import { validate } from '../middlewares/version2/validate.js';
-import { prisma } from '../lib/prisma.js';
-
-const router = Router();
-
-// Create Blog Post
-router.post('/', validate(createPostSchema), async (req, res, next) => {
+import type { RequestHandler } from 'express';
+import { generateSlug } from '../../utils/slug.js';
+import { prisma } from '../../lib/prisma.js';
+import { AppError } from '../../utils/app-error.js';
+export const createPost: RequestHandler = async (req, res, next) => {
   try {
+    if (!req.user) {
+      throw new AppError('Authentication required', 401);
+    }
     const { title, content, excerpt, categoryId, published } = req.body;
 
-    // Check duplicate slug
+    // Unique slug generate
     const baseSlug = generateSlug(title);
     let slug = baseSlug;
     let count = 1;
-
     while (await prisma.post.findUnique({ where: { slug } })) {
       slug = `${baseSlug}-${count}`;
       count++;
@@ -30,12 +25,11 @@ router.post('/', validate(createPostSchema), async (req, res, next) => {
         excerpt,
         slug,
         published,
-        // Temporary: Will use auth session in next lesson
-        authorId: 'temp-admin-id',
+        authorId: req.user!.id,
         categoryId: categoryId || null,
       },
       include: {
-        author: { select: { name: true, email: true } },
+        author: { select: { name: true, email: true, image: true } },
         category: true,
       },
     });
@@ -48,10 +42,9 @@ router.post('/', validate(createPostSchema), async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
+};
 
-// Get All Published Posts (Public)
-router.get('/', async (_req, res, next) => {
+export const getPosts: RequestHandler = async (_req, res, next) => {
   try {
     const posts = await prisma.post.findMany({
       where: { published: true },
@@ -66,6 +59,4 @@ router.get('/', async (_req, res, next) => {
   } catch (error) {
     next(error);
   }
-});
-
-export default router;
+};
