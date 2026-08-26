@@ -10,6 +10,8 @@ import { auth } from './lib/auth.js';
 import { notFound } from './middlewares/not-found.js';
 import { errorHandler } from './middlewares/error-handler.js';
 import { healthRouter } from './routes/health.routes.js';
+import { apiLimiter } from './middlewares/version2/security.js';
+import { postRouter } from './modules/post/post.routes.js';
 
 export const app = express();
 
@@ -39,6 +41,11 @@ app.all('/api/auth/*splat', toNodeHandler(auth));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+// 5. Rate limiting
+app.use('/api/', apiLimiter);
+
+//posts routes
+app.use('/api/posts', postRouter);
 
 //health check
 app.use('/api/health', healthRouter);
