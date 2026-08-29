@@ -1,10 +1,8 @@
 import { Router } from 'express';
-import { z } from 'zod';
-
 import { generateSlug } from '../utils/slug.js';
-import { createPostSchema } from '../validations/createPostSchema.js';
 import { validate } from '../middlewares/version2/validate.js';
 import { prisma } from '../lib/prisma.js';
+import { createPostSchema } from '../validations/post.validation.js';
 
 const router = Router();
 
